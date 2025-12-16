@@ -1,7 +1,7 @@
 import React from "react";
 
 function FitnessApp() {
-  return <div>Hello World</div>;
+  return <div id="fitness-app-title">Hello World</div>;
 }
 
 export default FitnessApp;
