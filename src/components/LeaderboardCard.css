@@ -1,0 +1,92 @@
+/* Leaderboard Card */
+.leaderboard-card {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease;
+  gap: 16px;
+}
+
+.leaderboard-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateX(4px);
+}
+
+.leaderboard-card--top {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.1) 0%,
+    var(--bg-secondary) 100%
+  );
+  border-color: rgba(255, 215, 0, 0.2);
+}
+
+.leaderboard-card--top:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.leaderboard-place {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 32px;
+  text-align: center;
+}
+
+.leaderboard-username {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.leaderboard-medal {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Skeleton Loading */
+.leaderboard-card--skeleton {
+  pointer-events: none;
+}
+
+.leaderboard-card--skeleton .skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.06) 25%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.06) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+.skeleton-place {
+  width: 32px;
+  height: 24px;
+}
+
+.skeleton-username {
+  flex: 1;
+  height: 20px;
+  max-width: 150px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

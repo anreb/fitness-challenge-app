@@ -43,4 +43,3 @@ const MyChallengeCard = ({ challenge, isLoading, skeletonColor }) => {
 };
 
 export default MyChallengeCard;
-
