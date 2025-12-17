@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Start.css";
 import ChallengeCard from "./ChallengeCard";
 
-const Start = () => {
+const Start = ({ onChallengeSelect }) => {
   const [challenges, setChallenges] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -30,7 +30,12 @@ const Start = () => {
               <ChallengeCard key={index} isLoading={true} />
             ))
           : challenges.map((challenge, index) => (
-              <ChallengeCard key={index} challenge={challenge} isLoading={false} />
+              <ChallengeCard
+                key={index}
+                challenge={challenge}
+                isLoading={false}
+                onClick={() => onChallengeSelect(challenge)}
+              />
             ))}
       </div>
     </div>

@@ -4,7 +4,7 @@ import MyChallengeCard from "./MyChallengeCard";
 
 const skeletonColors = ["#FB8C00", "#FDD835", "#43A047", "#2E7D32"];
 
-const MyChallenges = () => {
+const MyChallenges = ({ onChallengeSelect }) => {
   const [userChallenges, setUserChallenges] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -35,7 +35,12 @@ const MyChallenges = () => {
               <MyChallengeCard key={index} isLoading={true} skeletonColor={color} />
             ))
           : userChallenges.map((challenge, index) => (
-              <MyChallengeCard key={index} challenge={challenge} isLoading={false} />
+              <MyChallengeCard
+                key={index}
+                challenge={challenge}
+                isLoading={false}
+                onClick={() => onChallengeSelect(challenge)}
+              />
             ))}
       </div>
     </div>

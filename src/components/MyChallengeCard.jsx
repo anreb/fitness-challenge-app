@@ -15,7 +15,7 @@ const calculateProgress = (goals) => {
   return Math.round((completedGoals / goals.length) * 100);
 };
 
-const MyChallengeCard = ({ challenge, isLoading, skeletonColor }) => {
+const MyChallengeCard = ({ challenge, isLoading, skeletonColor, onClick }) => {
   if (isLoading) {
     return (
       <div
@@ -33,8 +33,9 @@ const MyChallengeCard = ({ challenge, isLoading, skeletonColor }) => {
 
   return (
     <div
-      className="my-challenge-card"
+      className="my-challenge-card my-challenge-card--clickable"
       style={{ backgroundColor: progressColor }}
+      onClick={onClick}
     >
       <span className="my-challenge-name">{challenge.name}</span>
       <span className="my-challenge-progress">{progress}%</span>
