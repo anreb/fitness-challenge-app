@@ -41,6 +41,17 @@
   transform: scale(0.95);
 }
 
+/* Active Nav Item */
+.nav-item--active {
+  background: rgba(0, 212, 170, 0.15);
+  color: var(--accent);
+}
+
+.nav-item--active:hover {
+  background: rgba(0, 212, 170, 0.2);
+  color: var(--accent-hover);
+}
+
 /* Nav Emoji */
 .nav-emoji {
   font-size: 24px;
