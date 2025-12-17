@@ -10,7 +10,7 @@ const ChallengeDetail = ({ challenge, onBack }) => {
 
   const handleGoalCheck = (goalIndex) => {
     const goal = currentChallenge.goals[goalIndex];
-    
+
     // Don't allow unchecking
     if (goal.completed !== null) return;
 
@@ -34,7 +34,10 @@ const ChallengeDetail = ({ challenge, onBack }) => {
       if (storedUsers) {
         const users = JSON.parse(storedUsers);
         if (users[2]) {
-          users[2].challenges = [...(users[2].challenges || []), updatedChallenge];
+          users[2].challenges = [
+            ...(users[2].challenges || []),
+            updatedChallenge,
+          ];
           localStorage.setItem("users", JSON.stringify(users));
         }
       }
@@ -60,9 +63,14 @@ const ChallengeDetail = ({ challenge, onBack }) => {
     setCurrentChallenge(updatedChallenge);
   };
 
-  const completedCount = currentChallenge.goals.filter((g) => g.completed !== null).length;
+  const completedCount = currentChallenge.goals.filter(
+    (g) => g.completed !== null
+  ).length;
   const totalCount = currentChallenge.goals.length;
   const progress = Math.round((completedCount / totalCount) * 100);
+
+  // Hide Challenge Friends button once challenge has been started (has id and at least one goal completed)
+  const isChallengeStarted = currentChallenge.id && completedCount > 0;
 
   return (
     <div className="challenge-detail">
@@ -72,7 +80,11 @@ const ChallengeDetail = ({ challenge, onBack }) => {
 
       <h1 className="challenge-detail-title">{currentChallenge.name}</h1>
 
-      <button className="challenge-friends-button">👥 Challenge Friends</button>
+      {!isChallengeStarted && (
+        <button className="challenge-friends-button">
+          👥 Challenge Friends
+        </button>
+      )}
 
       <div className="challenge-section">
         <h3>📝 Description</h3>
@@ -85,12 +97,16 @@ const ChallengeDetail = ({ challenge, onBack }) => {
       </div>
 
       <div className="challenge-section">
-        <h3>🎯 Goals ({completedCount}/{totalCount} - {progress}%)</h3>
+        <h3>
+          🎯 Goals ({completedCount}/{totalCount} - {progress}%)
+        </h3>
         <div className="goals-list">
           {currentChallenge.goals.map((goal, index) => (
             <label
               key={index}
-              className={`goal-item ${goal.completed !== null ? "goal-item--completed" : ""}`}
+              className={`goal-item ${
+                goal.completed !== null ? "goal-item--completed" : ""
+              }`}
             >
               <input
                 type="checkbox"
@@ -109,4 +125,3 @@ const ChallengeDetail = ({ challenge, onBack }) => {
 };
 
 export default ChallengeDetail;
-
