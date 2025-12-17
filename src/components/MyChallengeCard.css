@@ -1,0 +1,66 @@
+/* My Challenge Card */
+.my-challenge-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.my-challenge-card:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.my-challenge-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.my-challenge-progress {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Skeleton Loading */
+.my-challenge-card--skeleton {
+  pointer-events: none;
+}
+
+.my-challenge-card--skeleton .skeleton {
+  background: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.2) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+.my-challenge-card--skeleton .skeleton-name {
+  width: 120px;
+  height: 20px;
+}
+
+.my-challenge-card--skeleton .skeleton-progress {
+  width: 50px;
+  height: 22px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
