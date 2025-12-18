@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./FitnessApp.css";
 import NavBar from "./NavBar";
 import Start from "./Start";
 import MyChallenges from "./MyChallenges";
