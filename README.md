@@ -1,5 +1,7 @@
 # 🏋️ Fitness Challenge App
 
+> 🌐 **[Try it live!](https://fitness-challenge-app.bernardolopez.me)**
+
 A React-based fitness challenge tracking application where users can start challenges, track goals, compete with friends, and view leaderboards.
 
 ## 📋 Features
@@ -23,11 +25,13 @@ A React-based fitness challenge tracking application where users can start chall
 1. Clone or download the repository
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Build the application:
+
 ```bash
 node build.js
 ```
@@ -37,6 +41,7 @@ node build.js
 ### Option 1: Open HTML File Directly
 
 Simply open `index.html` in your browser:
+
 - Navigate to the project folder
 - Double-click on `index.html`
 - Or right-click → **Open with** → Select your browser
@@ -44,6 +49,7 @@ Simply open `index.html` in your browser:
 ### Option 2: VS Code Live Server (Recommended)
 
 1. Install the **Live Server** extension in VS Code:
+
    - Open VS Code
    - Go to Extensions (Ctrl+Shift+X)
    - Search for "Live Server"
@@ -90,6 +96,7 @@ npx playwright test
 ```
 
 The tests will:
+
 - Open a browser window (non-headless mode)
 - Navigate through all app sections
 - Highlight tested elements with ✅ badges
@@ -98,6 +105,7 @@ The tests will:
 ### Test Coverage
 
 The E2E tests cover:
+
 - ✅ Start Component (title, challenges list, nav selection)
 - ✅ Challenge Detail (title, description, duration, goals)
 - ✅ Friends Modal (user selection, start challenge)
@@ -159,4 +167,3 @@ fitness-challenge-app/
 ## 📝 License
 
 ISC
-
