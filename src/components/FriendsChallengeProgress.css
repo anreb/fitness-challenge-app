@@ -1,0 +1,56 @@
+/* Friends Challenge Progress */
+.friends-challenge-progress {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.friends-challenge-progress h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+
+.friends-progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.friend-progress-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.friend-progress-name {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  min-width: 120px;
+}
+
+.friend-progress-bar-container {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.friend-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.friend-progress-percentage {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  min-width: 45px;
+  text-align: right;
+}
+

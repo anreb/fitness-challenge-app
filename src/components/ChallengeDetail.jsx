@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./ChallengeDetail.css";
+import FriendsModal from "./FriendsModal";
+import FriendsChallengeProgress from "./FriendsChallengeProgress";
 
 const ChallengeDetail = ({ challenge, onBack }) => {
   const [currentChallenge, setCurrentChallenge] = useState(challenge);
+  const [showModal, setShowModal] = useState(false);
+  const [refreshProgress, setRefreshProgress] = useState(0);
 
   useEffect(() => {
     setCurrentChallenge(challenge);
@@ -63,6 +67,21 @@ const ChallengeDetail = ({ challenge, onBack }) => {
     setCurrentChallenge(updatedChallenge);
   };
 
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleStartChallenge = (updatedChallenge) => {
+    // Update current challenge with the new challenge from modal
+    setCurrentChallenge(updatedChallenge);
+    // Refresh the friends progress component
+    setRefreshProgress((prev) => prev + 1);
+  };
+
   const completedCount = currentChallenge.goals.filter(
     (g) => g.completed !== null
   ).length;
@@ -81,7 +100,7 @@ const ChallengeDetail = ({ challenge, onBack }) => {
       <h1 className="challenge-detail-title">{currentChallenge.name}</h1>
 
       {!isChallengeStarted && (
-        <button className="challenge-friends-button">
+        <button className="challenge-friends-button" onClick={handleOpenModal}>
           👥 Challenge Friends
         </button>
       )}
@@ -120,6 +139,21 @@ const ChallengeDetail = ({ challenge, onBack }) => {
           ))}
         </div>
       </div>
+
+      {currentChallenge.id && (
+        <FriendsChallengeProgress
+          key={refreshProgress}
+          challengeId={currentChallenge.id}
+        />
+      )}
+
+      {showModal && (
+        <FriendsModal
+          challenge={currentChallenge}
+          onClose={handleCloseModal}
+          onStartChallenge={handleStartChallenge}
+        />
+      )}
     </div>
   );
 };
