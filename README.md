@@ -164,6 +164,42 @@ fitness-challenge-app/
 - **CSS3** - Styling with CSS variables
 - **localStorage** - Data persistence
 
+## ⚡ Optimization Choices
+
+This app was built with simplicity and performance in mind for a small-scale application:
+
+### Build & Bundling
+
+- **esbuild** over Webpack/Vite - Extremely fast bundling (sub-second builds) with minimal configuration
+- **Single bundle output** - One `bundle.js` and one `bundle.css` file reduces HTTP requests
+- **No framework overhead** - Vanilla React setup without Create React App or Next.js bloat
+
+### Data & State
+
+- **localStorage persistence** - Client-side data storage eliminates the need for a backend server or database
+- **Component-level state** - Simple `useState`/`useEffect` instead of Redux/Zustand for this app's scope
+
+### UX Patterns
+
+- **Skeleton loading** - 1-second skeleton screens provide better perceived performance than spinners
+- **Color-coded progress** - Visual feedback through background colors (orange → yellow → green) for quick status recognition
+
+### Styling
+
+- **Separate CSS files per component** - Maintainable CSS organization without CSS-in-JS runtime overhead
+- **CSS variables** - Centralized theming in `:root` for easy customization
+- **Mobile-first responsive design** - Bottom nav on mobile, side nav on desktop
+
+### Deployment
+
+- **Static file hosting** - No Node.js server required in production; works with any static host (Nginx, S3, Netlify)
+- **Direct HTML entry** - Can be opened as a file or served via any HTTP server
+
+### Testing
+
+- **Playwright E2E** - Visual browser-based testing over unit tests for this UI-focused app
+- **Non-headless mode** - Tests run visibly with visual indicators for debugging and demonstration
+
 ## 📝 License
 
 ISC
